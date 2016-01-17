@@ -1,0 +1,93 @@
+<style type="text/css">
+.center{
+    text-align: center;
+}
+#capture{
+
+}
+.infomation{
+   /* width: 400px;*/
+}
+.slide>img{
+    width:600px;
+    height: 300px;
+}
+
+
+</style>
+
+<div class="app-bar" data-role="appbar">
+    <a class="app-bar-element branding">Movie Eyes</a>
+
+    <ul class="app-bar-menu place-right">
+        <li><a ng-click="captureImage()">{{capture}}</a></li>
+    </ul>
+</div>
+<div class="grid">
+    <div class="row cells12">
+        <div class="cell offset1">
+            <video controls="controls" id="video" src="images/test.mp4" width="1000px"></video>
+        </div>
+
+    </div>
+</div>
+
+<div class="wrapper" ng-show="show">
+    <div class="grid">
+        <div class="row cells12">
+            <div class="cell colspan5 offset1 tile-big tile-wide-y bg-white" data-role="tile">
+                <div class="tile-content">
+                    <div class="panel" style="height: 100%">
+                        <div class="heading bg-green fg-white"><span class="title text-light">{{name}}</span></div>
+                        <div class="content fg-dark clear-float" style="height: 100%">
+                            <img ng-src="{{avatar}}" class="place-left margin10" style="height: 230px">
+                            <p>{{description}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cell colspan5 tile-big tile-wide-y bg-white" data-role="tile">
+                <div class="knownfor cell colspan6 offset1">
+                    <h3 class="fg-orange">News<span class="mif-chevron-right mif-2x" style="vertical-align: top !important;"></span></h3>
+                    <div class="row cells12">
+                        <div class="accordion" data-role="accordion" data-close-any="true">
+                            <div class="frame" ng-repeat="anews in news|limitTo:7">
+                                <div class="heading">{{anews}}</div>
+                                <!-- <div class="content" style="display: none;">
+                                    {{anews.content}}
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row cells12">
+
+            <div class="knownfor cell colspan12 offset1">
+                <h3 class="fg-blue">Known For<span class="mif-chevron-right mif-2x" style="vertical-align: top !important;"></span></h3>
+                <div class="row cells12">
+                    <img ng-repeat="picture in pictures" class="cell colspan2" ng-src="{{picture}}">
+                </div>
+            </div>
+            <!-- <div class="cell colspan5">
+                <h3 class="fg-orange">Photos<span class="mif-chevron-right mif-2x" style="vertical-align: top !important;"></span></h3>
+                <div class="row cells12">
+                        <div class="carousel" data-role="carousel" data-height="300" data-control-next="<span></span>" data-control-prev="<span></span>">
+                            <div class="slide"><img ng-repeat="picture in pictures" ng-src="{{picture}}"></div>
+                        </div>
+
+                </div>
+            </div> -->
+        </div>
+
+
+    </div>
+    
+</div>
+<div data-role="dialog" id="dialog" data-type="alert">
+    <h2 style="margin:20px">Face Detecting Failed</h2>
+</div>
+
+
