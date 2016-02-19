@@ -23,7 +23,7 @@ angular.module('hackRiceApp')
     		var video = $("#video").get(0);
     		var scale = 0.5;
     	    var canvas = document.createElement("canvas");
-    	    // video.pause();
+    	    video.pause();
     	    canvas.width = video.videoWidth * scale;
 			canvas.height = video.videoHeight * scale;
     	    canvas.getContext('2d')
