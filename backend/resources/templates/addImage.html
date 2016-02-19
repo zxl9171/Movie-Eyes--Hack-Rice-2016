@@ -1,0 +1,17 @@
+<h2>Add additional for actor</h2>
+<hr>
+<span>{{message}}</span>
+<form action="/add_image" method="POST">
+    {% csrf-field %}
+    <label for="actor">Actor</label>
+    <select id="actor" name="name">
+	{% for actor in actors %}
+	    <option value="{{actor.name}}">{{actor.name}}</option>
+	{% endfor%}
+    </select>
+    <br>
+    <label for="image_url">Actor URL</label>
+    <input id="image_url" type="text" name="image_url">
+    <br>
+    <input type="submit" value="Submit">
+</form>
